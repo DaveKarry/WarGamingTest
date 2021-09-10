@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-        <!-- Upload form. Note enctype attribute! -->
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <p>{{ form.docfile.label_tag }}</p>

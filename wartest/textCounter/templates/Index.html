@@ -7,7 +7,7 @@
 {% if docs %}
         <ul>
         {% for document in docs %}
-            <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+            <li><a href="{{ document.get_absolute_url }}">{{ document.slug }}</a></li>
         {% endfor %}
         </ul>
     {% else %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>Name: {{document.name}}</p>
+<p>Файл: <a href={{document.docfile.url}} >{{document.docfile.url}}</a></p>
+
+<table style="border: 1px solid #dddddd">
+    <tr >
+        <th style="border: 1px solid #dddddd">Слово</th>
+        <th style="border: 1px solid #dddddd">Встречается в документах</th>
+        <th style="border: 1px solid #dddddd">Встречается в этом документе </th>
+        <th style="border: 1px solid #dddddd">Обратная частота документа</th>
+    </tr>
+    {% for w in object_list %}
+        <tr>
+            <td>{{ w.word }}</td>
+
+            {% for e in words %}
+                {% if e.name == w.word.name %}
+                    <td>{{ e.count_from_docs }}</td>
+                {% endif %}
+            {% endfor %}
+
+            <td>{{ w.count }}</td>
+            <td>{{ w.word.idf }}</td>
+
+
+        </tr>
+    {% endfor %}
+
+
+
+
+</table>
+{% endblock %}
