@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+Тут будет список файлов
+
+
+{% if docs %}
+        <ul>
+        {% for document in docs %}
+            <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No documents.</p>
+    {% endif %}
+{% endblock %}
